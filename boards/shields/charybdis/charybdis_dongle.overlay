@@ -3,11 +3,11 @@
 
 &charybdis_6col_layout {
     transform = <&default_transform>;
-}
+};
 
 &charybdis_5col_layout {
     transform = <&five_column_transform>;
-}
+};
 
 / {
     chosen {
