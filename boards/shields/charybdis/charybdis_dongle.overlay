@@ -1,5 +1,9 @@
 #include "charybdis.dtsi"
 
+&trackball_listener {
+    status = "okay";
+};
+
 / {
     chosen {
         zmk,kscan = &mock_kscan;
