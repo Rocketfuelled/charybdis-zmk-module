@@ -69,3 +69,7 @@
 &trackball_l_split {
 	device = <&trackball_l>;
 };
+
+&trackball_r_split {
+	status = "disabled";
+};
