@@ -27,7 +27,7 @@ config BT_MAX_PAIRED
 
 endif
 
-if SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_RIGHT
+if SHIELD_CHARYBDIS_RIGHT
 
 config ZMK_SPLIT
 	default y
@@ -37,5 +37,12 @@ config SPI
     
 config ZMK_POINTING
     default y
+	
+endif
+
+if SHIELD_CHARYBDIS_LEFT
+
+config ZMK_SPLIT
+	default y
 	
 endif
