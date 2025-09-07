@@ -37,5 +37,11 @@ config SPI
     
 config ZMK_POINTING
     default y
+
+config PMW3610
+    default y
+
+config PMW3610_REPORT_INTERVAL_MIN
+    default 8
 	
 endif
