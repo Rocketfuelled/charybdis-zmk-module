@@ -8,8 +8,6 @@
 };
 
 &kscan0 {
-	compatible = "zmk,kscan-gpio-matrix";
-	
 	col-gpios
 		= <&xiao_d 9 GPIO_ACTIVE_HIGH>
 		, <&xiao_d 7 GPIO_ACTIVE_HIGH>
