@@ -4,7 +4,6 @@
 
 / {
     chosen {
-        zmk,kscan = &kscan0;
         zmk,physical-layout = &charybdis_5col_layout;
     };
 
@@ -32,10 +31,6 @@
 	RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,10) RC(2,9) RC(2,8) RC(2,7) RC(2,6)
 					RC(3,3) RC(3,4) RC(3,5)  RC(3,10) RC(3,9) RC(3,8)
         >;
-    };
-	
-    kscan0: kscan {
-        diode-direction = "col2row";
     };
 
     charybdis_6col_layout: charybdis_6col_layout {
@@ -94,6 +89,7 @@
         compatible = "zmk,physical-layout";
         display-name = "5-column";
 
+        kscan = <&kscan0>;
         transform = <&five_column_transform>;
 
         keys  //                     w   h    x    y     rot    rx    ry
@@ -160,5 +156,11 @@
                 , <         30 31 32 33 34 35         >
                 ;
         };
+    };
+	
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        diode-direction = "col2row";
     };
 };
