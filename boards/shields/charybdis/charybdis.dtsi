@@ -4,7 +4,12 @@
 
 / {
     chosen {
+        zmk,kscan = &kscan0;
         zmk,physical-layout = &charybdis_5col_layout;
+    };
+	
+    kscan0: kscan {
+        diode-direction = "col2row";
     };
 
     five_column_transform: keymap_transform_1 {
@@ -24,7 +29,6 @@
         compatible = "zmk,physical-layout";
         display-name = "5-column";
 
-        kscan = <&kscan0>;
         transform = <&five_column_transform>;
 
         keys  //                     w   h    x    y     rot    rx    ry
@@ -81,11 +85,5 @@
                 , <         30 31 32 33 34 35         >
                 ;
         };
-    };
-	
-    kscan0: kscan {
-        compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
-        diode-direction = "col2row";
     };
 };
