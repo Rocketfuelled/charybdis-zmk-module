@@ -4,6 +4,8 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 &kscan0 {
+	compatible = "zmk,kscan-gpio-matrix";
+    
 	col-gpios
 		= <&gpio0 8 GPIO_ACTIVE_HIGH>
 		, <&gpio0 7 GPIO_ACTIVE_HIGH>
