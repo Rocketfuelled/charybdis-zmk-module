@@ -63,7 +63,7 @@
 };
 
 /* charybdis_pointer.dtsi references &trackball_listener - must come after node definition */
-#include "../config/charybdis_pointer.dtsi"
+#include "../../../config/charybdis_pointer.dtsi"
 
 &trackball_split {
     status = "okay";

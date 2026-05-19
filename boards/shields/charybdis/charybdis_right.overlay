@@ -1,6 +1,6 @@
 #include "charybdis.dtsi"
 #include "charybdis_3610.dtsi"
-#include "../config/charybdis_pointer.dtsi"
+#include "../../../config/charybdis_pointer.dtsi"
 
 &five_column_transform {
 	col-offset = <5>;
