@@ -1,15 +1,78 @@
+// Documentation: https://zmk.dev/docs/development/hardware-integration/dongle
+#include <dt-bindings/zmk/matrix_transform.h>
 #include "charybdis.dtsi"
+
+&charybdis_physical_layout {
+    transform = <&default_transform>;
+};
 
 / {
     chosen {
-        zmk,kscan = &mock_kscan;
+        zmk,kscan = &kscan0;
         zmk,physical-layout = &charybdis_5col_layout;
     };
 
-    mock_kscan: kscan_1 {
+    kscan0: kscan_1 {
         compatible = "zmk,kscan-mock";
-        columns = <0>;
-        rows = <0>;
-        events = <0>;
+        columns    = <0>;
+        rows       = <0>;
+        events     = <0>;
     };
+
+    central: bt_central {
+        compatible = "zmk,ble-central";
+        peripherals = <&left_peripheral &right_peripheral>;
+    };
+
+    left_peripheral: bt_left {
+        compatible = "zmk,ble-peripheral";
+        local-name = "charybdis_left";
+    };
+
+    right_peripheral: bt_right {
+        compatible = "zmk,ble-peripheral";
+        local-name = "charybdis_right";
+    };
+
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        trackball_r_split: trackball_r_split@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
+
+        trackball_l_split: trackball_l_split@1 {
+            compatible = "zmk,input-split";
+            reg = <1>;
+        };
+    };
+
+    trackball_l_listener: trackball_l_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&trackball_r_split>;
+    };
+
+    trackball_r_listener: trackball_r_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&trackball_l_split>;
+    };
+};
+
+/* charybdis_pointer.dtsi references &trackball_listener - must come after node definition */
+#include "../config/charybdis_pointer.dtsi"
+
+&trackball_split {
+    status = "okay";
+};
+
+&trackball_l_listener {
+    status = "okay";
+};
+
+&trackball_r_listener {
+    status = "okay";
 };
