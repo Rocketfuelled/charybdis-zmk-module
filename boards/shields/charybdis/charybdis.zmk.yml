@@ -3,7 +3,7 @@ id: charybdis
 name: Charybdis
 type: shield
 url: https://github.com/bastardkb/charybdis/
-requires: [seeeduino_xiao_ble]
+requires: [pro_micro]
 features:
   - keys
   - pointer
