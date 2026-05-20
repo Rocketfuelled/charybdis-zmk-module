@@ -65,7 +65,11 @@
 /* charybdis_pointer.dtsi references &trackball_listener - must come after node definition */
 #include "../../../config/charybdis_pointer.dtsi"
 
-&trackball_split {
+&trackball_r_split {
+    status = "okay";
+};
+
+&trackball_l_split {
     status = "okay";
 };
 
